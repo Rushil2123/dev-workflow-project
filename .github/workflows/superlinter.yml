@@ -1,3 +1,4 @@
+---
 name: Lint Code Base
 
 on: [push, pull_request]
@@ -8,6 +9,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensures the full commit history is fetched
 
       - name: Super-Linter
         uses: github/super-linter@v6
